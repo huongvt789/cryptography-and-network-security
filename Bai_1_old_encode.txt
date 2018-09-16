@@ -1,0 +1,30 @@
+﻿/*
+Bài tập 1:
+- Lập trình nhập một chuỗi kí tự từ bàn phím, cộng mỗi phần tử của chuỗi với 3. Hiện chuỗi mới ra màn hình.
+- Lập trình khôi phục lại chuỗi ban đầu.
+*/
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+#include <string>
+
+
+int main()
+{
+	string s;
+	cout << "Moi nhap chuoi:";
+	cin >> s;
+	for (int i = 0; i < s.size(); i++) {
+		s[i] = s[i] + 3;
+	}
+	cout << "Chuoi vua nhap la:" << s <<'\n';
+	for (int i = 0; i < s.size(); i++)
+	{
+		s[i] = s[i] - 3;
+	}
+	cout << "Chuoi sau khi ma hoa la:" << s;
+	system("pause");
+
+    return 0;
+}
+

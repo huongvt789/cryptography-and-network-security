@@ -1,0 +1,54 @@
+﻿/*
+Bài tập 2:
+- Lập trình nhập một chuỗi kí tự từ bàn phím, cộng mỗi phần tử của chuỗi với K (K là một giá trị nhập từ bàn phím). Hiện chuỗi mới ra màn hình.
+- Lập trình khôi phục lại chuỗi ban đầu.
+
+*/
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+#include <string>
+
+string A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int kyTu_So(char c) {
+	for (int i = 0; i < 26; i++) {
+		if (A[i] == c) {
+			return i;
+		}
+	}
+}
+
+char maHoa(char chuoi, int matMa) {
+	int giatriMaChuoi = kyTu_So(chuoi);
+	giatriMaChuoi = (giatriMaChuoi + matMa) % 26;
+	return A[giatriMaChuoi];
+}
+char giaMa(char chuoi, int matMa) {
+	int giaTriGiaiChuoi = kyTu_So(chuoi);
+	giaTriGiaiChuoi = (giaTriGiaiChuoi + 26 - matMa) % 26;
+	return A[giaTriGiaiChuoi];
+}
+
+int main()
+{
+	string chuoi;
+	int matma;
+	cout << "Nhap plain text:"; cin >> chuoi;
+	cout << "Nhap khoa:"; cin >> matma;
+	for (int i = 0; i < chuoi.size(); i++)
+	{
+		chuoi[i] = maHoa(chuoi[i], matma);
+	}
+	cout << "Chuoi ma hoa:" << chuoi << '\n';
+
+	for (int i = 0; i < chuoi.size(); i++)
+	{
+		chuoi[i] = giaMa(chuoi[i], matma);
+	}
+	cout << "Chuoi giai ma:" << chuoi;
+
+	system("pause");
+
+	return 0;
+}
+

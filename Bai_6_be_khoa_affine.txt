@@ -1,0 +1,58 @@
+﻿/*
+Bài tập 6:
+Lập trình bẻ khoá mật mã Affine bằng phương pháp Brute-force:
+   - Đầu vào chương trình là chuỗi kí tự cipher text thu được từ Bài tập 1.
+   - Hãy xác định cặp số {a,b} đã sử dụng và nội dung của plain text ban đầu.
+
+*/
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+#include <string>
+
+int NghichDao(int a) {
+	for (int i = 1; i <= 25; i++) {
+
+		if ((i*a) % 26 == 1) {
+
+			return i;
+		}
+	}
+}
+
+string M = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int KiTu_So(char chuoi) {
+	for (int i = 0; i < 26; i++) {
+		if (chuoi == M[i]) {
+			return i;
+		}
+	}
+}
+char GiaiMa(char chuoi, int a, int b) {
+	int giai = KiTu_So(chuoi);
+	giai = NghichDao(a)*((giai - b + 26) % 26);
+	return M[giai];
+}
+
+int main()
+{
+	bool check = false;
+	string s, s2;
+
+	s = "JQE";
+	s2 = s;
+	int N[] = { 1, 3,  5,  7,  9,  11, 15, 17, 19, 21, 23, 25 };
+	for (int b = 0; b < 26; b++)
+		for (int j = 0; j < 12; j++) {
+			for (int i = 0; i < s.size(); i++) {
+				s[i] = GiaiMa(s[i], N[j], b);
+			}
+			cout << N[j] << "," << b << "," << s << endl;
+			s = s2;;
+
+		}
+	system("pause");
+
+	return 0;
+}
+

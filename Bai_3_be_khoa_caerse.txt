@@ -1,0 +1,39 @@
+﻿
+/*Bài tập 3: Lập trình bẻ khóa thuật toán CAESAR.
+*/
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+#include <string>
+
+string A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int kyTu_So(char c) {
+	for (int i = 0; i < 26; i++) {
+		if (A[i] == c) {
+			return i;
+		}
+	}
+}
+
+char maHoa(char chuoi, int matMa) {
+	int giatriMaChuoi = kyTu_So(chuoi);
+	giatriMaChuoi = (giatriMaChuoi + matMa) % 26;
+	return A[giatriMaChuoi];
+}
+int main()
+{
+	string chuoiDaMa = "KHPOVJAOBFSVP";
+	string chuoiSudung = chuoiDaMa;
+	for (int khoa = 0; khoa < 26; khoa++) {
+		for (int i = 0; i < chuoiDaMa.size(); i++) {
+			chuoiDaMa[i] = maHoa(chuoiDaMa[i], khoa);
+		}
+		cout << chuoiDaMa<<'\n';
+		cout << khoa;
+		chuoiDaMa = chuoiSudung;
+	}
+	system("pause");
+
+	return 0;
+}
+
