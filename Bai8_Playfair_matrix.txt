@@ -1,0 +1,88 @@
+﻿#include<iostream>
+#include<string>
+
+using namespace std;
+
+
+/*
+* Bài tập 8:
++ Nhập 1 chuỗi ký tự từ bàn phím. => Loại bỏ các ký tự trung lặp trong chuỗi.
++ Điền thêm vào chuỗi những ký tự còn lại vào bảng chữ cái.
++ Đặt chuỗi ký tự vào ma trận 5x5.
++ Thêm giải mãi luôn.
+*/
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+#include <string>
+
+string M = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+int main() {
+
+	string s;
+	cout << "Nhap chuoi : ";
+	getline(cin, s);
+	int size = s.size();
+//Ma
+	for (int i = 0; i < 25; i++) {
+
+		s.push_back(M[i]);
+	}
+
+	int dem = 0;
+	char matrix[5][5];
+	for (int i = 0; i < 5; i++) {
+
+		for (int j = 0; j < 5; j++) {
+
+			matrix[i][j] = s[dem];
+			dem++;
+		}
+	}
+
+	for (int i = 0; i < 5; i++) {
+
+		for (int j = 0; j < 5; j++) {
+
+			cout << matrix[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	string mahoa;
+	for (int j = 0; j < 5; j++) {
+
+		for (int i = 0; i < 5; i++) {
+
+			mahoa.push_back(matrix[i][j]);
+		}
+	}
+	cout << "Chuoi ma hoa: " << mahoa << endl;
+//Giai.
+	dem = 0;
+	char matrixG[5][5];
+	for (int i = 0; i < 5; i++) {
+
+		for (int j = 0; j < 5; j++) {
+
+			matrixG[i][j] = mahoa[dem];
+			dem++;
+		}
+	}
+	string giaima;
+
+	for (int j = 0; j < 5; j++) {
+
+		for (int i = 0; i < 5; i++) {
+
+			giaima.push_back(matrixG[i][j]);
+		}
+	}
+	cout << "Chuoi giai ma: " << giaima << endl;
+		system("pause");
+		return 0;
+}
+
+
+}

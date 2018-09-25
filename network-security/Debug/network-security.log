@@ -1,0 +1,7 @@
+﻿  network-security.cpp
+d:\nam 2018-2019\an toan va bao mat thong tin\network-security\network-security\network-security.cpp(77): warning C4018: '<': signed/unsigned mismatch
+d:\nam 2018-2019\an toan va bao mat thong tin\network-security\network-security\network-security.cpp(84): warning C4018: '<': signed/unsigned mismatch
+d:\nam 2018-2019\an toan va bao mat thong tin\network-security\network-security\network-security.cpp(46): warning C4715: 'KiTu_So': not all control paths return a value
+d:\nam 2018-2019\an toan va bao mat thong tin\network-security\network-security\network-security.cpp(36): warning C4715: 'NghichDao': not all control paths return a value
+  network-security.vcxproj -> D:\Nam 2018-2019\An toan va bao mat thong tin\network-security\Debug\network-security.exe
+  network-security.vcxproj -> D:\Nam 2018-2019\An toan va bao mat thong tin\network-security\Debug\network-security.pdb (Full PDB)
