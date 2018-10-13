@@ -1,0 +1,50 @@
+﻿
+/*
+Bài 10: Nhập chuỗi ký tự từ bàn phím mã hóa bằng thuật toán Vigenre với k nhập từ bàn phím. 
+Hiện chuỗi ra màn hình.
+Lập trình giải mã để khôi phục lại chuỗi ban đầu.
+*/
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+#include <string>
+string M = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+int kyTu_So(char c) {
+	for (int i = 0; i < 26; i++) {
+		if (M[i] == c) {
+			return i;
+		}
+	}
+}
+char so_kyTu(int n) {
+	return M[n];
+}
+
+char maHoa(char chuoi, char  khoa) {
+	int a = kyTu_So(chuoi), b = kyTu_So(khoa);
+	a = (a + b + 26) % 26;
+	return so_kyTu(a);
+}
+char giaiMa( char chuoi, char  khoa) {
+	int a = kyTu_So(chuoi), b = kyTu_So(khoa);
+	a = (a - b + 26) % 26;
+	return so_kyTu(a);
+}
+int main() {
+	string s, k;
+	cout << "Nhap plaintext:"; cin >> s;
+	cout << "Nhap khoa k:"; cin >> k;
+	int m = k.size();
+	for (int i = 0; i < s.size(); i++){
+		s[i] = maHoa(s[i], k[i%m]);
+	}
+	cout << "Chuoi ma hoa la:" << s;
+	for (int i = 0; i < s.size(); i++) {
+		s[i] = giaiMa(s[i], k[i%m]);
+	}
+	cout << endl<< "Chuoi giai ma la:" << s;
+	system("pause");
+	return 0;
+}
+
